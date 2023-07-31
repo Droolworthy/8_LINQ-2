@@ -29,6 +29,7 @@ namespace LINQ2
 
             string commandOutputListCriminals = "1";
             string commandExit = "2";
+            string crime = "Антиправительственное";
 
             while (isWork)
             {
@@ -43,7 +44,7 @@ namespace LINQ2
 
                     ShowInfoCriminals();
 
-                    _criminals.RemoveAll(criminal => criminal.Crime.StartsWith("А"));
+                    _criminals.RemoveAll(criminal => criminal.Crime.StartsWith(crime));
 
                     Console.WriteLine("\nПреступники после амнистии:");
 
