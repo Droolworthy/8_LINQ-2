@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -68,7 +68,7 @@ namespace LINQ2
         {
             for (int i = 0; i < _criminals.Count; i++)
             {
-                Console.WriteLine($"Имя - {_criminals[i].FullName}, Преступление - {_criminals[i].Crime}");
+                Console.WriteLine($"ФИО - {_criminals[i].FullName}, Преступление - {_criminals[i].Crime}");
             }
         }
 
