@@ -42,13 +42,19 @@ namespace LINQ2
                 {
                     Console.WriteLine("\nПреступники до амнистии:");
 
-                    ShowInfoCriminals();
+                    for (int i = 0; i < _criminals.Count; i++)
+                    {
+                        Console.WriteLine($"ФИО - {_criminals[i].FullName}, Преступление - {_criminals[i].Crime}");
+                    }
 
-                    _criminals.RemoveAll(criminal => criminal.Crime.StartsWith(crime));
+                    var filteredCriminals = _criminals.Where(criminal => criminal.Crime != crime);
 
                     Console.WriteLine("\nПреступники после амнистии:");
 
-                    ShowInfoCriminals();
+                    foreach (var criminal in filteredCriminals)
+                    {
+                        Console.WriteLine($"ФИО - {criminal.FullName}, Преступление - {criminal.Crime}");
+                    }
 
                     Console.Write("\nДля продолжения нажмите любую клавишу...");
                     Console.ReadKey();
@@ -62,14 +68,6 @@ namespace LINQ2
                 {
                     Console.WriteLine("Ошибка. Попробуйте ещё раз.");
                 }
-            }
-        }
-
-        private void ShowInfoCriminals()
-        {
-            for (int i = 0; i < _criminals.Count; i++)
-            {
-                Console.WriteLine($"ФИО - {_criminals[i].FullName}, Преступление - {_criminals[i].Crime}");
             }
         }
 
