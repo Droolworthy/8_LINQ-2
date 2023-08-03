@@ -16,7 +16,7 @@ namespace LINQ2
 
     class Jail
     {
-        private readonly List<Criminal> _criminals = new List<Criminal>();
+        private List<Criminal> _criminals = new List<Criminal>();
 
         public Jail()
         {
@@ -47,11 +47,11 @@ namespace LINQ2
                         Console.WriteLine($"ФИО - {_criminals[i].FullName}, Преступление - {_criminals[i].Crime}");
                     }
 
-                    var filteredCriminals = _criminals.Where(criminal => criminal.Crime != crime);
+                    _criminals = _criminals.Where(criminal => criminal.Crime != crime).ToList();
 
                     Console.WriteLine("\nПреступники после амнистии:");
 
-                    foreach (var criminal in filteredCriminals)
+                    foreach (var criminal in _criminals)
                     {
                         Console.WriteLine($"ФИО - {criminal.FullName}, Преступление - {criminal.Crime}");
                     }
